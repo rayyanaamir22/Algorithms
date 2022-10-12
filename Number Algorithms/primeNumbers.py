@@ -25,6 +25,12 @@ def primesUpTo(n):
     return primes
 
 # Returns a pair of prime numbers that add to an even integer greater than 2, n
+def goldbachConjecture1(n):
+    for x in range(2, n//2):
+        y = (n - x)
+        if (isPrime(x) and isPrime(y)):
+            return x, y
+
 def goldbachConjecture2(n):
     x, y = 0, 0
     sum = 0
@@ -43,4 +49,3 @@ def goldbachConjecture2(n):
                         break
 
     return x, y
-
