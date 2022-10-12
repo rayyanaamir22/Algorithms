@@ -13,7 +13,16 @@ def isPrime(n):
 
 # Return a list of all primes less than or equal to a positive integer n
 def primesUpTo(n): 
-    pass
+    primes = list(range(2, n+1))
+    for num in primes:
+        m = 2 # Multiplier
+        while ((num * m) <= primes[-1]): # Test for non-primes
+            if (num * m) in primes:
+                primes.remove(num * m) # Remove non-primes
+            m += 1 # Increase multiplier for next iteration
+    
+    # Only verified primes remain now
+    return primes
 
 def goldbachConjectureTest():
     pass
