@@ -1,6 +1,6 @@
 # Prime Number Algorithms
 
-# Determine if n is prime
+# Returns whether n is prime
 def isPrime(n):
     if (n <= 1): # Integers less than or equal to 1 are not prime
         return False
@@ -24,5 +24,23 @@ def primesUpTo(n):
     # Only verified primes remain now
     return primes
 
-def goldbachConjectureTest():
-    pass
+# Returns a pair of prime numbers that add to an even integer greater than 2, n
+def goldbachConjecture2(n):
+    x, y = 0, 0
+    sum = 0
+    if (n%2 == 0): # n is even
+        primesToTest = primesUpTo(n)
+        
+        while sum != n:
+            for i in range(len(primesToTest)):
+                if sum == n:
+                   break
+                x = primesToTest[i]
+                for j in range(len(primesToTest)):
+                    y = primesToTest[j]
+                    sum = (x+y)
+                    if sum == n: 
+                        break
+
+    return x, y
+
