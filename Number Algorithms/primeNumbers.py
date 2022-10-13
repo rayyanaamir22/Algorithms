@@ -24,11 +24,14 @@ def primesUpTo(n):
     # Only verified primes remain now
     return primes
 
+# Same function but makes use of isPrime(n) 
 def primesUpTo2(n):
     primes = list(range(2, n+1))
     for num in primes:
         if not isPrime(num):
             primes.remove(num)
+
+    return primes
 
 # Returns a pair of prime numbers that add to an even integer greater than 2, n
 def goldbachConjecture1(n):
@@ -37,6 +40,7 @@ def goldbachConjecture1(n):
         if (isPrime(x) and isPrime(y)):
             return x, y
 
+# Same function but usingPrimesUpTo(n) instead of isPrime(n)
 def goldbachConjecture2(n):
     x, y = 0, 0
     sum = 0
