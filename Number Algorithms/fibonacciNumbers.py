@@ -8,13 +8,13 @@ def fibonacciUpTo(n): # Returns list including nth element
 
     return f
 
-def isFibonacci(n):
+def isFibonacci(n): # Test if n is a fibonacci number
     if n in fibonacciUpTo(n):
         return True
     
     return False
 
-
+# Returns nth fibonacci number
 def fibonacci(n): # Recursive
     if n <= 1:
         return n
@@ -44,4 +44,8 @@ def fibonacci3(n): # Golden ratio; only accurate for n < 35
 
 # States that every positive integer can be expressed as the sum of two distinct, non-neighbouring fibonacci numbers
 def zeckendorfTheorem(n): # Returns a pair of non-neighbouring fibonacci numbers that add to a positive integer n
-    pass
+    numbersToTest = fibonacciUpTo(n) 
+    for fn in numbersToTest:
+        diff = (n - fn)
+        if isFibonacci(diff):
+            return fn, diff
