@@ -12,7 +12,7 @@ def isPrime(n):
     return True
 
 # Return a list of all primes less than or equal to a positive integer n
-def primesUpTo(n): 
+def eratosthenes(n): # Sieve of Eratosthenes
     primes = list(range(2, n+1))
     for num in primes:
         m = 2 # Multiplier
@@ -45,7 +45,7 @@ def goldbachConjecture2(n):
     x, y = 0, 0
     sum = 0
     if (n%2 == 0): # n is even
-        primesToTest = primesUpTo(n)
+        primesToTest = eratosthenes(n)
         
         while sum != n:
             for i in range(len(primesToTest)):
@@ -56,6 +56,4 @@ def goldbachConjecture2(n):
                     y = primesToTest[j]
                     sum = (x+y)
                     if sum == n: 
-                        break
-
-    return x, y
+                        return x, y
