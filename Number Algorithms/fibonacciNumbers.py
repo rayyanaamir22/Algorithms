@@ -42,6 +42,16 @@ def fibonacci3(n): # Golden ratio; only accurate for n < 35
 
     return fn
 
+# Determine golden ratio using nth fibonacci numbers
+def approximateGoldenRatioUsingFibonacci(n): # n must be atleast 1
+    # approximateGR = float(fibonacci(n) / fibonacci(n-1))
+    # actualGR = float((1 + (5**(1/2))) / 2)
+    # error = abs((approximateGR - actualGR) / actualGR)
+    # print(f'Error: {error * 100}%)
+
+    return float(fibonacci(n) / fibonacci(n-1))
+
+
 # States that every positive integer can be expressed as the sum of two distinct, non-neighbouring fibonacci numbers
 def zeckendorfTheorem(n): # Returns a pair of non-neighbouring fibonacci numbers that add to a positive integer n
     test = fibonacciUpTo(n) 
