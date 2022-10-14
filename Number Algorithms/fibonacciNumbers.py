@@ -44,8 +44,9 @@ def fibonacci3(n): # Golden ratio; only accurate for n < 35
 
 # States that every positive integer can be expressed as the sum of two distinct, non-neighbouring fibonacci numbers
 def zeckendorfTheorem(n): # Returns a pair of non-neighbouring fibonacci numbers that add to a positive integer n
-    numbersToTest = fibonacciUpTo(n) 
-    for fn in numbersToTest:
+    test = fibonacciUpTo(n) 
+    for fn in test:
         diff = (n - fn)
-        if isFibonacci(diff):
+        # Check if both are fibonacci numbers that are atleast 2 indices away from eachother (not neighbouring)
+        if isFibonacci(diff) and (abs(test.index(fn) - test.index(diff)) >= 2):
             return fn, diff
