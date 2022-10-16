@@ -25,7 +25,7 @@ def eratosthenes(n): # Sieve of Eratosthenes
     return primes
 
 # Same function but makes use of isPrime(n) 
-def primesUpTo2(n):
+def primesUpTo(n):
     primes = list(range(2, n+1))
     for num in primes:
         if not isPrime(num):
@@ -87,3 +87,24 @@ def eratosthenesPrimeFactors(n):
             c +=1
 
     return pf
+
+# Factorial but only multiply prime numbers
+def primorial(n): # Unfinished
+    max = 1
+    primesValid = False
+    while (n>=max) and not primesValid:
+        primes = eratosthenes(max)
+        primes.pop() # Remove last element
+        if (primes[-1] < n):
+            primesValid = True
+            break
+
+        max += 1
+
+    pn = 1
+    for prime in primes:
+        pn *= prime
+    return pn
+
+print(primorial(3))
+    
