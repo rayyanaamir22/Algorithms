@@ -40,7 +40,7 @@ def goldbachConjecture1(n):
         if (isPrime(x) and isPrime(y)):
             return x, y
 
-# Same function but usingPrimesUpTo(n) instead of isPrime(n)
+# Same function but using eratosthenes(n) instead of isPrime(n)
 def goldbachConjecture2(n):
     x, y = 0, 0
     sum = 0
