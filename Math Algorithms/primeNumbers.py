@@ -33,6 +33,29 @@ def primesUpTo(n):
 
     return primes
 
+# Returns first n prime numbers
+def firstPrimes(n):
+    if n<0:
+        raise ValueError
+
+    primes = []
+    p = 0
+    while (len(primes) != n):
+        if isPrime(p):
+            primes.append(p)
+
+        p += 1 # Test next number
+
+    return primes
+
+# Factorial but only multiply prime numbers
+def primorial(n):
+    pm = 1 # Base for multiplication
+    primes = firstPrimes(n)
+    for prime in primes:
+        pm *= prime
+    return pm
+
 # Returns a pair of prime numbers that add to an even integer greater than 2, n
 def goldbachConjecture1(n):
     for x in range(2, n//2):
@@ -87,24 +110,3 @@ def eratosthenesPrimeFactors(n):
             c +=1
 
     return pf
-
-# Factorial but only multiply prime numbers
-def primorial(n): # Unfinished
-    max = 1
-    primesValid = False
-    while (n>=max) and not primesValid:
-        primes = eratosthenes(max)
-        primes.pop() # Remove last element
-        if (primes[-1] < n):
-            primesValid = True
-            break
-
-        max += 1
-
-    pn = 1
-    for prime in primes:
-        pn *= prime
-    return pn
-
-print(primorial(3))
-    

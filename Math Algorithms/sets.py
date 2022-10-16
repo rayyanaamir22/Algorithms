@@ -20,7 +20,7 @@ def subsetDiff(n):
 
 # Given a positive integer n, divide first n natural numbers into 2 subsets with minimal difference
 # Returns the SUBSETS only
-def approxEvenSubsets(n): # For n>3
+def approxEvenSubsets(n): # Doesn't work
     nums = list(range(1, n+1))
 
     # Organize nums into 4-element subsets
