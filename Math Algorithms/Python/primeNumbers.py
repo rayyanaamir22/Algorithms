@@ -49,7 +49,7 @@ def firstPrimes(n):
     return primes
 
 # Factorial but only multiply prime numbers
-def primorial(n):
+def primorial(n): # Includes n, just like factorial
     pm = 1 # Base for multiplication
     primes = firstPrimes(n)
     for prime in primes:
