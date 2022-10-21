@@ -1,7 +1,57 @@
 # Set Theory
 
-# Assume natural numbers begin at 1
+# Returns the union of finite sets arr1 and arr2
+def union(arr1, arr2): # Recursive
+    arr1 = []
+    def helper(arr1, arr2): # Move the helper definition out of the function to save time
+        if (len(arr1) == 0):
+            return arr1
+        else:
+            if (arr1[0] in arr2):
+                arr1.append(arr2)
+            
+            arr1.pop(0)
+            return arr1
+    return helper(arr1, arr2)
 
+def union2(arr1, arr2): # Iterative
+    unionArray = []
+    for i in arr1:
+        if not (i in arr2):
+            unionArray.append(i)
+    return unionArray
+
+# Returns the intersection of finite sets arr1 and arr2
+# Recursive
+def intersection(arr1, arr2):
+    intersected = []
+    def helper(arr1, arr2):
+        if (len(arr1) == 0): # Base case
+            return intersected
+        else: # Check for element to append
+            if (arr1[0] in arr2):
+                intersected.append(arr1[0])
+            
+            arr1.pop(0)
+            return helper(arr1, arr2)
+    return helper(arr1, arr2)
+
+# Iterative; faster for arrays smaller than ~500 elements
+def intersection2(arr1, arr2): # O(n)
+    intersectedArray = []
+    for i in arr1:
+        if (i in arr2):
+            intersectedArray.append(i)
+    return intersectedArray
+
+# Returns the complement of arr given finite arr and universalSet
+def complement(arr, universalSet):
+    arrComplement = []
+    for i in universalSet:
+        if not (i in arr):
+            arrComplement.append(i)
+
+# Assume natural numbers begin at 1
 # Given a positive integer n, divide first n natural numbers into 2 subsets with minimal difference
 # Returns the DIFFERENCE only
 def subsetDiff(n):
